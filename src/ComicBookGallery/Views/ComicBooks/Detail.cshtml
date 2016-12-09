@@ -25,10 +25,18 @@
     <h1>@seriesTitle</h1>
     <h2>@issueNumber</h2>
     <h3>@Html.Raw(@description)</h3>
-    <h4>@artists</h4>
-
     <div>
-    
+        @if (artists.Length > 0)
+        {
+        <h5>Artists:</h5>
+        <ul>
+            @foreach (var artist in artists)
+            {
+                <li>@artist</li>
+            }
+        </ul>
+        }
     </div>
+
 </body>
 </html>
