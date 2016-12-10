@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ComicBookGallery.Models.ComicBook
+
+@{
     Layout = null;
 }
 
@@ -7,20 +9,20 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>@Model.DisplayText</title>
 </head>
 <body>
-    <h1>@ViewBag.SeriesTitle</h1>
-    <h2>Issue #@ViewBag.IssueNumber</h2>
-    <h3>@Html.Raw(@ViewBag.description)</h3>
+    <h1>@Model.SeriesTitle</h1>
+    <h2>Issue #@Model.IssueNumber</h2>
+    <h3>@Html.Raw(Model.DescriptionHtml)</h3>
     <div>
-        @if (@ViewBag.Artists.Length > 0)
+        @if (Model.Artists.Length > 0)
         {
         <h5>Artists:</h5>
         <ul>
-            @foreach (var artist in @ViewBag.Artists)
+            @foreach (var artist in Model.Artists)
             {
-                <li>@artist</li>
+                <li>@artist.Name: @artist.Role</li>
             }
         </ul>
         }
