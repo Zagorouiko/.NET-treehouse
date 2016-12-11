@@ -26,6 +26,13 @@
         </div>
     </div>
 
+    <div class="backbar">
+        <div class="container">
+            @Html.ActionLink("Return to List", "Index", null, new { @class = "btn btn-default"})
+        </div>
+    </div>
+
+    @if (ViewBag.ShowBackBar != null && ViewBag.ShowBackBar) {
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -33,6 +40,9 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+    }
+
+    @RenderBody();
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
